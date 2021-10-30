@@ -6,6 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -28,21 +32,21 @@ public class Ch3Ex3Activity extends AppCompatActivity {
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int i) {
-                return new PlaceholderFragment();
+                PlaceholderFragment fragment = new PlaceholderFragment();
+                return fragment;
             }
 
             @Override
             public int getCount() {
-                return 3;
+                return 5;
             }
         });
 
 
         // TODO: ex3-2, 添加 TabLayout 支持 Tab
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab3"));
+        tabLayout.setupWithViewPager(viewPager);
+
 
     }
 
